@@ -18,7 +18,7 @@ pipeline{
             steps{
                 println " here im building the code"
                 sh "mvn clean package"
-                sh " ls -l /target"
+                sh " ls -l target/"
             }
         }
         stage("Upload artifacts"){
