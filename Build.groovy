@@ -24,7 +24,7 @@ pipeline{
         stage("Upload artifacts"){
             steps{
                 println " here im uploading artifacts to s3 bucket"
-                sh "aws s3 cp target/hello-${BUILD_NUMBER}.war s3://mamuu/pandu/${BRANCH_NAME}/${BUILD_NUMBER}/"
+                sh "aws s3 cp target/hello-${BUILD_NUMBER}.war s3://mamuu/pandu/${BRANCH_SOURCE}/${BUILD_NUMBER}/"
             }
         }
     }
