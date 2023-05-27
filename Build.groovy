@@ -32,10 +32,9 @@ pipeline{
         stage("Deploy"){
             steps{
                 println "here im downloading artifacts from jenkins server to tomcat"
-                sh """
-                scp -i /tmp/mamu1031.pem /tmp/tomcatinstall.sh ec2-user@${SERVER_IP}:/tmp/
-                ssh -i /tmp/mamu1031.pem ec2-user@${SERVER_IP} "bash /tmp/tomcatinstall.sh && systemctl status tomcat"
-                """
+                //scp -i /tmp/mamu1031.pem /tmp/tomcatinstall.sh ec2-user@${SERVER_IP}:/tmp/
+                //ssh -i /tmp/mamu1031.pem ec2-user@${SERVER_IP} "bash /tmp/tomcatinstall.sh && systemctl status tomcat"
+                sh " scp -i /tmp/mamu1031.pem target/hello-*.war ec2-user@${SERVER_IP}:/var/lib/tomcat/webapps/"
             }
         }
     }
